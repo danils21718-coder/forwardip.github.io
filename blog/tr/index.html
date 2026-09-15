@@ -6,8 +6,9 @@
 <title>Blog — bağımlılık ve iyileşme</title>
 <meta name="description" content="Bağımlılık, istek ve ayık yaşam üzerine yazılar. Bir rehabilitasyon merkezinin metodolojisine dayanıyor.">
 <link rel="canonical" href="https://forwardip.online/blog/tr/">
-<link rel="icon" href="/favicon.ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#08130F;color:#EAF2ED;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.7}
@@ -19,23 +20,108 @@ h1{font-size:30px;line-height:1.25;margin:0 0 10px;letter-spacing:-0.4px}
 .item{background:#0E1D17;border:1px solid #1E3329;border-radius:14px;padding:18px;margin-bottom:14px}
 .item a{text-decoration:none;font-size:19px;font-weight:600;line-height:1.35;display:block;margin-bottom:7px}
 .item p{margin:0;font-size:15px;color:#B4C6BC}
-.app{background:#0E1D17;border:1px solid #1E3329;border-radius:14px;padding:16px 18px;margin-top:34px;font-size:15.5px;color:#B4C6BC}
+.langs{margin-top:30px;color:#B4C6BC;font-size:15px}
+.langs a{text-decoration:none}
+.otc{background:#0E1D17;border:1px solid #1E3329;border-radius:16px;padding:22px 20px;margin:36px 0 0}
+.otc h3{margin:0 0 8px;font-size:19px;line-height:1.3;color:#EAF2ED}
+.otc .sub{color:#B4C6BC;font-size:16px;margin:0 0 16px;line-height:1.55}
+.otc .btn{display:block;width:100%;text-align:center;background:#3FD18A;color:#06130E;
+  font-size:16.5px;font-weight:600;text-decoration:none;padding:15px 18px;border-radius:12px;
+  border:0;cursor:pointer;font-family:inherit;margin-bottom:10px}
+.otc .btn:active{opacity:.85}
+.otc .btn.ghost{background:transparent;color:#3FD18A;border:1px solid #1E3329;font-weight:500}
+.otc form{display:none;margin:0}
+.otc input[type=email]{width:100%;background:#08130F;border:1px solid #1E3329;color:#EAF2ED;
+  font-size:16px;font-family:inherit;padding:14px;border-radius:12px;margin-bottom:10px;outline:none}
+.otc input[type=email]:focus{border-color:#3FD18A}
+.otc .hint{font-size:13.5px;color:#B4C6BC;margin:0;line-height:1.5}
+.otc .ok{color:#3FD18A;font-size:16px;margin:0}
 </style>
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="/">← forwardip.online</a>
+
 <h1>Blog</h1>
 <p class="lead">Bağımlılık, istek ve ayık yaşam üzerine. Bir rehabilitasyon merkezinin metodolojisine dayanıyor.</p>
 
 <div class="item">
-<a href="/blog/tr/alkolu-nasil-birakabilirim.html">Alkolü nasıl bırakabilirim: ilk otuz gün</a>
+<a href="alkolu-nasil-birakabilirim.html">Alkolü nasıl bırakabilirim: ilk otuz gün</a>
 <p>Alkolü bıraktığınızda gerçekte ne olur ve istek geldiğinde ne yapmalı.</p>
 </div>
 
-<div class="app">
-Only Today Sober — bağımlılıkta destek. Kayıt yok, her şey cihazınızda — <a href="https://app.forwardip.online">app.forwardip.online</a>
+<div class="otc">
+  <h3>Only Today Sober</h3>
+  <p class="sub" id="otcText">Gün sayacı, duygu günlüğü, istek günlüğü, görevler ve her saat ulaşabileceğiniz bir mentor. Kayıt yok, her şey cihazınızda kalıyor.</p>
+
+  <a class="btn" id="otcMain" href="https://app.forwardip.online">Uygulamayı aç</a>
+  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Google Play'den indir</a>
+
+  <form id="otcForm" novalidate>
+    <input type="email" id="otcEmail" placeholder="mail@ornek.com" autocomplete="email" required>
+    <button class="btn" type="submit">App Store'a çıkınca haber ver</button>
+    <p class="hint">Çıkış günü tek bir e-posta. Başka hiçbir şey yok.</p>
+  </form>
 </div>
+
+<script>
+(function(){
+  /* ▼ ENDPOINT ▼ */
+  var WAITLIST_URL = "";
+  /* ▲ пусто = откроется почтовый клиент ▲ */
+
+  var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
+  var WEB  = "https://app.forwardip.online";
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/i.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+  var main = document.getElementById("otcMain");
+  var alt  = document.getElementById("otcAlt");
+  var form = document.getElementById("otcForm");
+  var text = document.getElementById("otcText");
+
+  if (isAndroid){
+    main.textContent = "Google Play'den indir"; main.href = PLAY;
+    alt.textContent  = "Tarayıcıda aç"; alt.href = WEB;
+  } else if (isIOS){
+    main.textContent = "Uygulamayı aç"; main.href = WEB;
+    alt.style.display = "none";
+    text.textContent = "App Store'da henüz yok — tarayıcıda çalışıyor ve Ana Ekrana eklenebiliyor. E-postanızı bırakın, çıktığı gün haber verelim.";
+    form.style.display = "block";
+  } else {
+    main.textContent = "Tarayıcıda aç"; main.href = WEB;
+    alt.textContent  = "Google Play'den indir"; alt.href = PLAY;
+    form.style.display = "block";
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var input = document.getElementById("otcEmail");
+    var mail = (input.value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){
+      input.style.borderColor = "#D96A6A"; input.focus(); return;
+    }
+    var done = function(){ form.innerHTML = '<p class="ok">' + "Kaydettik. Çıktığı gün e-posta atacağız." + '</p>'; };
+    if (!WAITLIST_URL){
+      window.location.href = "mailto:forwip7@gmail.com?subject=iOS%20waitlist&body=" + encodeURIComponent(mail);
+      done(); return;
+    }
+    fetch(WAITLIST_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify({ email: mail, source: location.pathname, platform:"ios" })
+    }).then(done).catch(function(){
+      form.innerHTML = '<p class="hint">' + "Gönderilemedi. forwip7@gmail.com adresine yazın, elle ekleyelim." + '</p>';
+    });
+  });
+})();
+</script>
+
+<p class="langs"><a href="/blog/">Русский</a> · <a href="/blog/en/">English</a> · <a href="/blog/es/">Español</a> · <a href="/blog/kk/">Қазақша</a> · <a href="/blog/pt/">Português</a></p>
+
 </div>
 </body>
 </html>

@@ -6,8 +6,9 @@
 <title>Blog — vício, recuperação e sobriedade</title>
 <meta name="description" content="Artigos sobre dependência, vontade e vida sóbria, baseados na metodologia de um centro de reabilitação.">
 <link rel="canonical" href="https://forwardip.online/blog/pt/">
-<link rel="icon" href="/favicon.ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#08130F;color:#EAF2ED;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.7}
@@ -19,28 +20,113 @@ h1{font-size:30px;line-height:1.25;margin:0 0 10px;letter-spacing:-0.4px}
 .item{background:#0E1D17;border:1px solid #1E3329;border-radius:14px;padding:18px;margin-bottom:14px}
 .item a{text-decoration:none;font-size:19px;font-weight:600;line-height:1.35;display:block;margin-bottom:7px}
 .item p{margin:0;font-size:15px;color:#B4C6BC}
-.app{background:#0E1D17;border:1px solid #1E3329;border-radius:14px;padding:16px 18px;margin-top:34px;font-size:15.5px;color:#B4C6BC}
+.langs{margin-top:30px;color:#B4C6BC;font-size:15px}
+.langs a{text-decoration:none}
+.otc{background:#0E1D17;border:1px solid #1E3329;border-radius:16px;padding:22px 20px;margin:36px 0 0}
+.otc h3{margin:0 0 8px;font-size:19px;line-height:1.3;color:#EAF2ED}
+.otc .sub{color:#B4C6BC;font-size:16px;margin:0 0 16px;line-height:1.55}
+.otc .btn{display:block;width:100%;text-align:center;background:#3FD18A;color:#06130E;
+  font-size:16.5px;font-weight:600;text-decoration:none;padding:15px 18px;border-radius:12px;
+  border:0;cursor:pointer;font-family:inherit;margin-bottom:10px}
+.otc .btn:active{opacity:.85}
+.otc .btn.ghost{background:transparent;color:#3FD18A;border:1px solid #1E3329;font-weight:500}
+.otc form{display:none;margin:0}
+.otc input[type=email]{width:100%;background:#08130F;border:1px solid #1E3329;color:#EAF2ED;
+  font-size:16px;font-family:inherit;padding:14px;border-radius:12px;margin-bottom:10px;outline:none}
+.otc input[type=email]:focus{border-color:#3FD18A}
+.otc .hint{font-size:13.5px;color:#B4C6BC;margin:0;line-height:1.5}
+.otc .ok{color:#3FD18A;font-size:16px;margin:0}
 </style>
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="/">← forwardip.online</a>
+
 <h1>Blog</h1>
 <p class="lead">Sobre dependência, vontade e vida sóbria. Baseado na metodologia de um centro de reabilitação.</p>
 
 <div class="item">
-<a href="/blog/pt/como-parar-de-beber.html">Como parar de beber: os primeiros trinta dias</a>
+<a href="como-parar-de-beber.html">Como parar de beber: os primeiros trinta dias</a>
 <p>O que realmente acontece quando você para de beber e o que fazer quando a vontade chega.</p>
 </div>
 
 <div class="item">
-<a href="/blog/pt/psicologo-ia-vicios.html">Psicólogo IA para vícios: o que ele faz de verdade</a>
+<a href="psicologo-ia-vicios.html">Psicólogo IA para vícios: o que ele faz de verdade</a>
 <p>Como um mentor de IA ajuda na vontade e na recaída, e onde ficam os limites dele.</p>
 </div>
 
-<div class="app">
-Only Today Sober — ajuda para dependência. Sem cadastro, tudo fica no seu aparelho — <a href="https://app.forwardip.online">app.forwardip.online</a>
+<div class="otc">
+  <h3>Only Today Sober</h3>
+  <p class="sub" id="otcText">Contador de dias, diário de emoções, registro de vontade, tarefas e um mentor disponível a qualquer hora. Sem cadastro, tudo fica no seu aparelho.</p>
+
+  <a class="btn" id="otcMain" href="https://app.forwardip.online">Abrir o aplicativo</a>
+  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Baixar no Google Play</a>
+
+  <form id="otcForm" novalidate>
+    <input type="email" id="otcEmail" placeholder="seu@email.com" autocomplete="email" required>
+    <button class="btn" type="submit">Me avise quando sair na App Store</button>
+    <p class="hint">Um e-mail no dia do lançamento. Mais nada.</p>
+  </form>
 </div>
+
+<script>
+(function(){
+  /* ▼ ENDPOINT ▼ */
+  var WAITLIST_URL = "";
+  /* ▲ пусто = откроется почтовый клиент ▲ */
+
+  var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
+  var WEB  = "https://app.forwardip.online";
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/i.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+  var main = document.getElementById("otcMain");
+  var alt  = document.getElementById("otcAlt");
+  var form = document.getElementById("otcForm");
+  var text = document.getElementById("otcText");
+
+  if (isAndroid){
+    main.textContent = "Baixar no Google Play"; main.href = PLAY;
+    alt.textContent  = "Abrir no navegador"; alt.href = WEB;
+  } else if (isIOS){
+    main.textContent = "Abrir o aplicativo"; main.href = WEB;
+    alt.style.display = "none";
+    text.textContent = "Ainda não está na App Store — funciona no navegador e dá para adicionar à tela de início. Deixe seu e-mail e avisamos no dia do lançamento.";
+    form.style.display = "block";
+  } else {
+    main.textContent = "Abrir no navegador"; main.href = WEB;
+    alt.textContent  = "Baixar no Google Play"; alt.href = PLAY;
+    form.style.display = "block";
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var input = document.getElementById("otcEmail");
+    var mail = (input.value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){
+      input.style.borderColor = "#D96A6A"; input.focus(); return;
+    }
+    var done = function(){ form.innerHTML = '<p class="ok">' + "Anotado. Avisamos no dia do lançamento." + '</p>'; };
+    if (!WAITLIST_URL){
+      window.location.href = "mailto:forwip7@gmail.com?subject=iOS%20waitlist&body=" + encodeURIComponent(mail);
+      done(); return;
+    }
+    fetch(WAITLIST_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify({ email: mail, source: location.pathname, platform:"ios" })
+    }).then(done).catch(function(){
+      form.innerHTML = '<p class="hint">' + "Não foi enviado. Escreva para forwip7@gmail.com que a gente adiciona na mão." + '</p>';
+    });
+  });
+})();
+</script>
+
+<p class="langs"><a href="/blog/">Русский</a> · <a href="/blog/en/">English</a> · <a href="/blog/es/">Español</a> · <a href="/blog/kk/">Қазақша</a> · <a href="/blog/tr/">Türkçe</a></p>
+
 </div>
 </body>
 </html>

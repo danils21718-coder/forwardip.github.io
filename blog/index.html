@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="canonical" href="https://forwardip.online/blog/index.html">
+<link rel="canonical" href="https://forwardip.online/blog/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-512.png">
 <link rel="apple-touch-icon" href="/favicon-180.png">
@@ -16,49 +16,154 @@
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.65;-webkit-text-size-adjust:100%;}
   .wrap{max-width:720px;margin:0 auto;padding:28px 20px 64px}
   h1{font-size:28px;line-height:1.25;margin:8px 0 18px;letter-spacing:-0.01em}
-  h2{font-size:22px;line-height:1.3;margin:38px 0 12px;color:var(--accent)}
-  h3{font-size:19px;margin:26px 0 8px}
   p{margin:0 0 16px}
   a{color:var(--accent)}
-  ol,ul{padding-left:22px;margin:0 0 18px}
-  li{margin-bottom:10px}
   .lead{font-size:19px}
-  .alert{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin:24px 0 28px;font-size:17px;}
-  .alert strong{color:var(--accent)}
-  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:24px 0;}
-  footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:17px;}
-  .meta{color:var(--muted);font-size:15px;margin-bottom:4px}
-  .app{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;color:var(--muted);font-size:17px;}
   article{border-bottom:1px solid var(--line);padding:18px 0}
-  article h2{font-size:20px;margin:0 0 6px}
+  article h2{font-size:20px;margin:0 0 6px;line-height:1.3}
   article h2 a{text-decoration:none}
   article p{color:var(--muted);font-size:17px;margin:0}
+  .langs{margin-top:32px;color:var(--muted);font-size:16px}
+  .langs a{text-decoration:none}
+
+  /* ── CTA ─────────────────────────────── */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin:38px 0 0}
+  .cta h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+  .cta p{color:var(--muted);font-size:16px;margin:0 0 16px}
+  .btn{display:block;width:100%;text-align:center;background:var(--accent);color:#06130E;
+       font-size:16.5px;font-weight:600;text-decoration:none;padding:15px 18px;border-radius:12px;border:0;cursor:pointer;
+       font-family:inherit;margin-bottom:10px}
+  .btn:active{opacity:.85}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:500}
+  .cta form{display:none}
+  .cta input[type=email]{width:100%;background:#08130F;border:1px solid var(--line);color:var(--text);
+       font-size:16px;font-family:inherit;padding:14px 14px;border-radius:12px;margin-bottom:10px;outline:none}
+  .cta input[type=email]:focus{border-color:var(--accent)}
+  .cta .hint{font-size:13.5px;color:var(--muted);margin:0}
+  .cta .ok{color:var(--accent);font-size:16px;margin:0}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <h1>Статьи о выздоровлении</h1>
 <p class="lead">Материалы по методике реабилитационного центра: что происходит при отмене, как устроена тяга, почему случаются срывы и что делать близким. Без запугивания и без обещаний.</p>
-<a href="/blog/dnevnik-chuvstv-kak-zapolnyat.html">Дневник чувств: как заполнять, чтобы он работал</a>
-<a href="/blog/ii-psiholog-pri-zavisimosti.html">ИИ психолог при зависимости: что он реально делает</a>
-  <article><h2><a href="kak-brosit-pit-samostoyatelno.html">Как бросить пить самостоятельно</a></h2><p>По неделям: где нужен врач, что происходит с телом и почему на второй месяц хуже.</p></article>
-<article><h2><a href="dnevnik-chuvstv-kak-zapolnyat.html">Дневник чувств: как заполнять, чтобы он работал</a></h2><p>По каждым чувством отдельно, задание на неделю, типичные ошибки.</p></article>
-  <article><h2><a href="sryv-chto-delat.html">Срыв: почему он случается на спокойном участке</a></h2><p>Восемь предвестников и почему опасен именно хороший период.</p></article>
+
+<article><h2><a href="kak-brosit-pit-samostoyatelno.html">Как бросить пить самостоятельно</a></h2><p>По неделям: где нужен врач, что происходит с телом и почему на второй месяц хуже.</p></article>
+
 <article><h2><a href="kak-perestat-upotreblyat.html">Как перестать употреблять: план на первые 30 дней</a></h2><p>Пошагово: первые сутки, первая неделя, месяц. И почему осенью тяжелее.</p></article>
-<article><h2><a href="net-deneg-na-reabilitaciyu.html">Нет денег на реабилитацию: что делать</a></h2><p>Что в реабилитации реально работает, что из этого доступно бесплатно и с чего начать сегодня.</p></article>
-<article><h2><a href="kak-ponyat-chto-zavisimost.html">Как понять, что зависимость уже есть</a></h2><p>11 честных признаков, потеря контроля и механизмы отрицания. Проверить себя спокойно.</p></article>
-<article><h2><a href="postabstinentnyy-sindrom.html">Постабстинентный синдром: почему через месяц становится хуже</a></h2><p>Вторая волна: пустота, туман в голове, бессонница. Что это и как пройти без срыва.</p></article>
+
 <article><h2><a href="pervye-72-chasa.html">Первые 72 часа без вещества</a></h2><p>Что происходит по дням, что делать в каждый из них и когда нужна скорая.</p></article>
+
 <article><h2><a href="tyaga-chto-delat.html">Тяга: как она устроена и что с ней делать в моменте</a></h2><p>Правило волны, HALT, сёрфинг по тяге и аварийный план. Если накрыло прямо сейчас.</p></article>
+
+<article><h2><a href="sryv-chto-delat.html">Срыв: почему он случается на спокойном участке</a></h2><p>Восемь предвестников и почему опасен именно хороший период.</p></article>
+
+<article><h2><a href="kak-ne-sorvatsya-kogda-vse-horosho.html">Как не сорваться, когда всё хорошо: тихая зона риска</a></h2><p>Три мысли перед срывом, что ломается первым и почему спокойствие опаснее кризиса.</p></article>
+
+<article><h2><a href="postabstinentnyy-sindrom.html">Постабстинентный синдром: почему через месяц становится хуже</a></h2><p>Вторая волна: пустота, туман в голове, бессонница. Что это и как пройти без срыва.</p></article>
+
+<article><h2><a href="dnevnik-chuvstv-kak-zapolnyat.html">Дневник чувств: как заполнять, чтобы он работал</a></h2><p>Пять полей записи, список чувств, задание на неделю и типичные ошибки.</p></article>
+
+<article><h2><a href="kak-ponyat-chto-zavisimost.html">Как понять, что зависимость уже есть</a></h2><p>11 честных признаков, потеря контроля и механизмы отрицания. Проверить себя спокойно.</p></article>
+
 <article><h2><a href="kak-brosit-narkotiki-samostoyatelno.html">Как бросить наркотики самостоятельно</a></h2><p>Где нужен врач, что делать в первые сутки и как пережить первые месяцы без центра.</p></article>
-  <article><h2><a href="ii-psiholog-pri-zavisimosti.html">ИИ психолог при зависимости: что он реально делает</a></h2></article>
-  <article><h2><a href="kak-slezt-so-stimulyatorov.html">Как слезть со стимуляторов: отмена, бессонница, пустота</a></h2><p>Фазы отмены, ангедония и сон. Почему тяжелее становится на второй неделе.</p></article>
+
+<article><h2><a href="kak-slezt-so-stimulyatorov.html">Как слезть со стимуляторов: отмена, бессонница, пустота</a></h2><p>Фазы отмены, ангедония и сон. Почему тяжелее становится на второй неделе.</p></article>
+
 <article><h2><a href="opiaty-posle-otmeny.html">Опиаты: чего ждать после отмены</a></h2><p>Ломка по дням, обезвоживание, упавшая переносимость и почему нельзя бросать одному.</p></article>
+
 <article><h2><a href="kak-brosit-kurit-travu.html">Как бросить курить траву</a></h2><p>Бессонница, яркие сны и скука по неделям. Что помогает и когда станет легче.</p></article>
-<p><a href="/blog/en/">English</a> · <a href="/blog/es/">Español</a> · <a href="/blog/kk/">Қазақша</a> · <a href="/blog/pt/">Português</a> · <a href="/blog/tr/">Türkçe</a></p>
-  <article><h2><a href="sozavisimost.html">Что такое созависимость и почему близкому тоже нужна помощь</a></h2><p>Признаки, границы, как разговаривать и почему спасательство продлевает болезнь.</p></article>
-<article><h2><a href="kak-ne-sorvatsya-kogda-vse-horosho.html">Как не сорваться, когда всё хорошо: тихая зона риска</a></h2></article>
-<p class="app">Ежедневная поддержка — <a href="https://app.forwardip.online">app.forwardip.online</a>: счётчик дней трезвости, дневник, лекции и наставник круглосуточно.</p>
+
+<article><h2><a href="sozavisimost.html">Что такое созависимость и почему близкому тоже нужна помощь</a></h2><p>Признаки, границы, как разговаривать и почему спасательство продлевает болезнь.</p></article>
+
+<article><h2><a href="net-deneg-na-reabilitaciyu.html">Нет денег на реабилитацию: что делать</a></h2><p>Что в реабилитации реально работает, что из этого доступно бесплатно и с чего начать сегодня.</p></article>
+
+<article><h2><a href="ii-psiholog-pri-zavisimosti.html">ИИ психолог при зависимости: что он реально делает</a></h2><p>Чем помогает в тяге и срыве, как с ним разговаривать и где проходит граница.</p></article>
+
+<!-- ══ CTA: вставляется в каждую статью ══ -->
+<div class="cta" id="otCta">
+  <h3>Только сегодня — приложение</h3>
+  <p id="otText">Счётчик дней, дневник чувств, задания и наставник круглосуточно. Без регистрации.</p>
+
+  <a class="btn" id="otMain" href="https://app.forwardip.online">Открыть приложение</a>
+  <a class="btn ghost" id="otAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Скачать в Google Play</a>
+
+  <form id="otForm" novalidate>
+    <input type="email" id="otEmail" placeholder="your@email.com" autocomplete="email" required>
+    <button class="btn" type="submit" id="otSubmit">Сообщить о выходе в App Store</button>
+    <p class="hint">Одно письмо в день релиза. Больше ничего не присылаем.</p>
+  </form>
+</div>
+
+<p class="langs"><a href="/blog/en/">English</a> · <a href="/blog/es/">Español</a> · <a href="/blog/kk/">Қазақша</a> · <a href="/blog/pt/">Português</a> · <a href="/blog/tr/">Türkçe</a></p>
+
+<script>
+(function(){
+  /* ▼▼ ВСТАВЬ СЮДА СВОЙ ENDPOINT ▼▼ */
+  var WAITLIST_URL = ""; // напр. "https://formspree.io/f/xxxxxxx"
+  /* ▲▲ пусто = письмо уйдёт через почтовый клиент ▲▲ */
+
+  var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
+  var WEB  = "https://app.forwardip.online";
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/i.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1); // iPad в desktop-режиме
+
+  var main = document.getElementById("otMain");
+  var alt  = document.getElementById("otAlt");
+  var form = document.getElementById("otForm");
+  var text = document.getElementById("otText");
+
+  if (isAndroid){
+    main.textContent = "Скачать в Google Play";
+    main.href = PLAY;
+    alt.textContent = "Открыть в браузере";
+    alt.href = WEB;
+  } else if (isIOS){
+    main.textContent = "Открыть приложение";
+    main.href = WEB;
+    alt.style.display = "none";
+    text.textContent = "В App Store пока нет — работает в браузере, можно добавить на экран «Домой». Оставь почту, напишем в день выхода.";
+    form.style.display = "block";
+  } else {
+    main.textContent = "Открыть в браузере";
+    main.href = WEB;
+    alt.textContent = "Скачать в Google Play";
+    alt.href = PLAY;
+    form.style.display = "block";
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var input = document.getElementById("otEmail");
+    var mail = (input.value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){
+      input.style.borderColor = "#D96A6A";
+      input.focus();
+      return;
+    }
+    var done = function(){
+      form.innerHTML = '<p class="ok">Записали. Напишем, когда выйдет в App Store.</p>';
+    };
+    if (!WAITLIST_URL){
+      window.location.href = "mailto:forwip7@gmail.com?subject=iOS%20waitlist&body=" + encodeURIComponent(mail);
+      done();
+      return;
+    }
+    fetch(WAITLIST_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ email: mail, source: location.pathname, platform: "ios" })
+    }).then(done).catch(function(){
+      form.innerHTML = '<p class="hint">Не отправилось. Напиши на forwip7@gmail.com — добавим вручную.</p>';
+    });
+  });
+})();
+</script>
+
 </div>
 </body>
 </html>

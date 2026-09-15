@@ -122,7 +122,92 @@
 
 <p>None of it requires believing in anything. Just today, and a note about how it went.</p>
 
-<p class="app">Start the count tonight — <a href="https://app.forwardip.online">app.forwardip.online</a>: sobriety tracker, journal, craving log, and someone to talk to at any hour.</p>
+<style>
+.otc{background:#0E1D17;border:1px solid #1E3329;border-radius:16px;padding:22px 20px;margin:36px 0 0}
+.otc h3{margin:0 0 8px;font-size:19px;line-height:1.3;color:#EAF2ED}
+.otc .sub{color:#B4C6BC;font-size:16px;margin:0 0 16px;line-height:1.55}
+.otc .btn{display:block;width:100%;text-align:center;background:#3FD18A;color:#06130E;
+  font-size:16.5px;font-weight:600;text-decoration:none;padding:15px 18px;border-radius:12px;
+  border:0;cursor:pointer;font-family:inherit;margin-bottom:10px}
+.otc .btn:active{opacity:.85}
+.otc .btn.ghost{background:transparent;color:#3FD18A;border:1px solid #1E3329;font-weight:500}
+.otc form{display:none;margin:0}
+.otc input[type=email]{width:100%;background:#08130F;border:1px solid #1E3329;color:#EAF2ED;
+  font-size:16px;font-family:inherit;padding:14px;border-radius:12px;margin-bottom:10px;outline:none}
+.otc input[type=email]:focus{border-color:#3FD18A}
+.otc .hint{font-size:13.5px;color:#B4C6BC;margin:0;line-height:1.5}
+.otc .ok{color:#3FD18A;font-size:16px;margin:0}
+</style>
+
+<div class="otc">
+  <h3>Only Today Sober</h3>
+  <p class="sub" id="otcText">Day counter, feelings journal, craving log, assignments and a companion available any hour. No signup, entries stay on your device.</p>
+
+  <a class="btn" id="otcMain" href="https://app.forwardip.online">Open the app</a>
+  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Get it on Google Play</a>
+
+  <form id="otcForm" novalidate>
+    <input type="email" id="otcEmail" placeholder="your@email.com" autocomplete="email" required>
+    <button class="btn" type="submit">Email me when it hits the App Store</button>
+    <p class="hint">One email on release day. Nothing else, ever.</p>
+  </form>
+</div>
+
+<script>
+(function(){
+  /* ▼ PUT YOUR ENDPOINT HERE (same in every article) ▼ */
+  var WAITLIST_URL = "";
+  /* ▲ empty = falls back to mail client ▲ */
+
+  var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
+  var WEB  = "https://app.forwardip.online";
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/i.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+  var main = document.getElementById("otcMain");
+  var alt  = document.getElementById("otcAlt");
+  var form = document.getElementById("otcForm");
+  var text = document.getElementById("otcText");
+
+  if (isAndroid){
+    main.textContent = "Get it on Google Play"; main.href = PLAY;
+    alt.textContent  = "Open in browser";       alt.href  = WEB;
+  } else if (isIOS){
+    main.textContent = "Open the app";          main.href = WEB;
+    alt.style.display = "none";
+    text.textContent = "Not on the App Store yet — it runs in your browser and can be added to your Home Screen. Leave your email and we'll tell you the day it lands.";
+    form.style.display = "block";
+  } else {
+    main.textContent = "Open in browser";       main.href = WEB;
+    alt.textContent  = "Get it on Google Play";  alt.href  = PLAY;
+    form.style.display = "block";
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var input = document.getElementById("otcEmail");
+    var mail = (input.value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){
+      input.style.borderColor = "#D96A6A"; input.focus(); return;
+    }
+    var done = function(){ form.innerHTML = '<p class="ok">You\'re on the list. We\'ll email you on release day.</p>'; };
+    if (!WAITLIST_URL){
+      window.location.href = "mailto:forwip7@gmail.com?subject=iOS%20waitlist&body=" + encodeURIComponent(mail);
+      done(); return;
+    }
+    fetch(WAITLIST_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify({ email: mail, source: location.pathname, platform:"ios" })
+    }).then(done).catch(function(){
+      form.innerHTML = '<p class="hint">Didn\'t go through. Email forwip7@gmail.com and we\'ll add you manually.</p>';
+    });
+  });
+})();
+</script>
 
 <footer>
 <p>Read next:</p>
