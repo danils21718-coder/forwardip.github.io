@@ -38,7 +38,7 @@
   },
   "featureList": [
     "Счётчик дней и часов трезвости",
-    "ИИ-наставник круглосуточно, текстом и голосом",
+    "ИИ-наставник круглосуточно, ответы можно зачитать вслух",
     "Своя зависимость, которую можно вписать вручную",
     "Дневник чувств",
     "Дневник тяги и триггеров",
@@ -66,7 +66,7 @@
     {"@type":"Question","name":"При каких зависимостях работает Only Today?","acceptedAnswer":{"@type":"Answer","text":"Алкоголь, наркотики, курение, вейп, азартные игры, порнография, переедание и другие. Если нужной зависимости нет в списке, её можно вписать своими словами, и приложение будет работать с ней."}},
     {"@type":"Question","name":"Сколько стоит Only Today?","acceptedAnswer":{"@type":"Answer","text":"Приложение бесплатное. Все функции доступны без оплаты. Работа приложения поддерживается ненавязчивым показом рекламы."}},
     {"@type":"Question","name":"Нужна ли регистрация?","acceptedAnswer":{"@type":"Answer","text":"Нет. Аккаунт не нужен, почта не нужна. Все данные хранятся только на телефоне и никуда не передаются."}},
-    {"@type":"Question","name":"Что умеет ИИ-наставник?","acceptedAnswer":{"@type":"Answer","text":"Наставник отвечает в любое время суток, помнит контекст разговора, знает срок трезвости и выбранную зависимость. Помогает разобрать тягу, спланировать день, пережить вечер, разобрать срыв без обвинений. Отвечает текстом и голосом. Он не заменяет врача и психотерапевта."}},
+    {"@type":"Question","name":"Что умеет ИИ-наставник?","acceptedAnswer":{"@type":"Answer","text":"Наставник отвечает в любое время суток, помнит контекст разговора, знает срок трезвости и выбранную зависимость. Помогает разобрать тягу, спланировать день, пережить вечер, разобрать срыв без обвинений. Любой его ответ телефон может зачитать вслух. Он не заменяет врача и психотерапевта."}},
     {"@type":"Question","name":"Когда выйдет версия для iPhone?","acceptedAnswer":{"@type":"Answer","text":"Версия для iOS готовится к релизу в App Store. Оставьте адрес электронной почты, и мы напишем в день выхода."}},
     {"@type":"Question","name":"Заменяет ли приложение лечение?","acceptedAnswer":{"@type":"Answer","text":"Нет. Only Today не заменяет врача, нарколога и психотерапевта. Это поддержка и самопомощь. При тяжёлой абстиненции нужна медицинская помощь."}}
   ]
@@ -97,6 +97,17 @@ p.lead{font-size:17px;color:#444;max-width:700px;margin-bottom:14px}
 .note{background:#fff8ed;border:1px solid #f0dfc0;border-radius:12px;padding:20px;font-size:15px;color:#5a4a33;max-width:720px}
 .soon{background:#f5faf8;border:1px solid #dfece7;border-radius:12px;padding:26px;max-width:720px}
 .soon p{font-size:16px;color:#444;margin-bottom:16px}
+.soon{margin-top:26px}
+.soon h3{font-size:18px;margin-bottom:8px}
+.frow{display:flex;flex-wrap:wrap;gap:10px}
+.frow input{flex:1 1 240px;min-width:0;font:inherit;font-size:15px;padding:12px 14px;border:1px solid #cfe2da;border-radius:10px;background:#fff;color:#1a1a2e}
+.frow input:focus{outline:2px solid #17a87a;outline-offset:1px}
+.frow button{font:inherit;font-size:15px;font-weight:500;padding:12px 20px;border:0;border-radius:10px;background:#0d3b2e;color:#fff;cursor:pointer}
+#iosTrap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fmsg{margin-top:10px;font-size:14px;min-height:20px}
+.fmsg.bad{color:#b4443a}
+.fmsg.good{color:#0d6b4f}
+.links a.ios{background:#fff;color:#0d3b2e;border:1px solid #cfe2da}
 footer{padding:32px 0;font-size:14px;color:#888}
 footer a{color:#888}
 @media(max-width:600px){header{padding:52px 0 44px}header h1{font-size:32px}}
@@ -124,7 +135,21 @@ footer a{color:#888}
     <p class="lead">Интерфейс на девяти языках. Регистрации нет, данные остаются на телефоне.</p>
     <div class="links">
       <a href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Скачать в Google Play</a>
+      <a class="ios" href="#ios">iPhone — скоро</a>
       <a class="ghost" href="/blog/">Читать блог о зависимости</a>
+    </div>
+
+    <div class="soon" id="ios">
+      <h3>Версия для iPhone скоро выйдет в App Store</h3>
+      <p>Оставь почту — напишем в день релиза. Одно письмо, без рассылки.</p>
+      <form id="iosForm" novalidate>
+        <div class="frow">
+          <input type="email" id="iosMail" placeholder="почта@пример.com" autocomplete="email" spellcheck="false">
+          <button type="submit">Уведомить меня</button>
+        </div>
+        <input type="text" id="iosTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="fmsg" id="iosMsg"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -149,8 +174,8 @@ footer a{color:#888}
         <p>Без обвинений и морали. Что сработало как спусковой крючок, где была точка, в которой ещё можно было свернуть, что делать в ближайшие сутки.</p>
       </div>
       <div class="card">
-        <h3>Отвечает голосом</h3>
-        <p>Любой ответ можно прослушать. Когда голова не варит и читать тяжело, это работает лучше текста.</p>
+        <h3>Можно не читать</h3>
+        <p>Под каждым ответом есть кнопка «Прослушать» — телефон зачитает текст вслух. Когда голова не варит, это выручает.</p>
       </div>
     </div>
     <p class="lead" style="margin-top:26px">Наставник не ставит диагнозов и не назначает лечение. Он не заменяет врача и психотерапевта — он рядом в промежутках между встречами с ними.</p>
@@ -222,18 +247,6 @@ footer a{color:#888}
 
 <section>
   <div class="wrap">
-    <h2>Версия для iPhone</h2>
-    <div class="soon">
-      <p>Версия для iOS готовится к релизу в App Store. Оставь адрес электронной почты — напишем в день выхода, одно письмо, без рассылки.</p>
-      <div class="links" style="margin-top:0">
-        <a href="mailto:forwip7@gmail.com?subject=Only%20Today%20для%20iPhone&amp;body=Сообщите%20мне%2C%20когда%20выйдет%20версия%20для%20iPhone.">Сообщить мне о выходе</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <h2>Честно о важном</h2>
     <div class="note">
       <p>Данные хранятся только в телефоне. Регистрации нет, аккаунта нет, почта не нужна.</p>
@@ -256,7 +269,7 @@ footer a{color:#888}
       <p>Нет. Аккаунт не нужен, почта не нужна. Данные хранятся только на телефоне и никуда не передаются.</p>
 
       <h3>Что умеет ИИ-наставник?</h3>
-      <p>Отвечает в любое время суток, помнит контекст, знает срок трезвости и выбранную зависимость. Помогает с тягой, планом дня, разбором срыва. Отвечает текстом и голосом.</p>
+      <p>Отвечает в любое время суток, помнит контекст, знает срок трезвости и выбранную зависимость. Помогает с тягой, планом дня, разбором срыва. Ответ можно прослушать — телефон зачитает его вслух.</p>
 
       <h3>Когда выйдет версия для iPhone?</h3>
       <p>Готовится к релизу в App Store. Оставь почту выше — напишем в день выхода.</p>
@@ -273,5 +286,25 @@ footer a{color:#888}
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var f=document.getElementById('iosForm');
+  if(!f) return;
+  var mail=document.getElementById('iosMail'),trap=document.getElementById('iosTrap'),msg=document.getElementById('iosMsg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    msg.className='fmsg';
+    if(trap.value){ return; }                       // ловушка для ботов: люди это поле не видят
+    var v=(mail.value||'').trim();
+    var at=v.indexOf('@'), dot=v.lastIndexOf('.');
+    var ok = v.length>5 && at>0 && dot>at+1 && dot<v.length-2 && v.indexOf(' ')<0 && v.indexOf('@',at+1)<0;
+    if(!ok){ msg.textContent='Проверь адрес: нужны знак @ и точка после него.'; msg.className='fmsg bad'; mail.focus(); return; }
+    msg.textContent='Спасибо. Сейчас откроется письмо — просто отправь его.'; msg.className='fmsg good';
+    window.location.href='mailto:forwip7@gmail.com?subject='+encodeURIComponent('Only Today для iPhone')+
+      '&body='+encodeURIComponent('Сообщите мне о релизе версии для iPhone.\nМоя почта: '+v);
+  });
+})();
+</script>
 </body>
 </html>

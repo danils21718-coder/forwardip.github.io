@@ -38,7 +38,7 @@
   },
   "featureList": [
     "Sober day and hour counter",
-    "AI mentor 24/7, in text and voice",
+    "AI mentor 24/7, answers can be read aloud by the phone",
     "Your own addiction, typed in by hand",
     "Feelings journal",
     "Craving and trigger journal",
@@ -66,7 +66,7 @@
     {"@type":"Question","name":"Which addictions does Only Today work for?","acceptedAnswer":{"@type":"Answer","text":"Alcohol, drugs, smoking, vaping, gambling, pornography, overeating and others. If yours is not on the list, you can type it in yourself and the app will work with it."}},
     {"@type":"Question","name":"How much does Only Today cost?","acceptedAnswer":{"@type":"Answer","text":"The app is free. Every feature is available at no cost. The app is supported by non-intrusive ads."}},
     {"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No. No sign-up, no email. All data stays on your phone and is never sent anywhere."}},
-    {"@type":"Question","name":"What does the AI mentor do?","acceptedAnswer":{"@type":"Answer","text":"It answers at any hour, remembers the conversation, knows your sober time and the addiction you picked. It helps you break down a craving, plan the day, get through the evening and work through a relapse without blame. It replies in text and by voice. It does not replace a doctor or a therapist."}},
+    {"@type":"Question","name":"What does the AI mentor do?","acceptedAnswer":{"@type":"Answer","text":"It answers at any hour, remembers the conversation, knows your sober time and the addiction you picked. It helps you break down a craving, plan the day, get through the evening and work through a relapse without blame. Any answer can be read aloud by your phone. It does not replace a doctor or a therapist."}},
     {"@type":"Question","name":"When is the iPhone version coming?","acceptedAnswer":{"@type":"Answer","text":"The iOS version is being prepared for release on the App Store. Leave your email and we will write to you on launch day."}},
     {"@type":"Question","name":"Does the app replace treatment?","acceptedAnswer":{"@type":"Answer","text":"No. Only Today does not replace a doctor, an addiction specialist or a therapist. It is support and self-help. Severe withdrawal needs medical care."}}
   ]
@@ -97,6 +97,17 @@ p.lead{font-size:17px;color:#444;max-width:700px;margin-bottom:14px}
 .note{background:#fff8ed;border:1px solid #f0dfc0;border-radius:12px;padding:20px;font-size:15px;color:#5a4a33;max-width:720px}
 .soon{background:#f5faf8;border:1px solid #dfece7;border-radius:12px;padding:26px;max-width:720px}
 .soon p{font-size:16px;color:#444;margin-bottom:16px}
+.soon{margin-top:26px}
+.soon h3{font-size:18px;margin-bottom:8px}
+.frow{display:flex;flex-wrap:wrap;gap:10px}
+.frow input{flex:1 1 240px;min-width:0;font:inherit;font-size:15px;padding:12px 14px;border:1px solid #cfe2da;border-radius:10px;background:#fff;color:#1a1a2e}
+.frow input:focus{outline:2px solid #17a87a;outline-offset:1px}
+.frow button{font:inherit;font-size:15px;font-weight:500;padding:12px 20px;border:0;border-radius:10px;background:#0d3b2e;color:#fff;cursor:pointer}
+#iosTrap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fmsg{margin-top:10px;font-size:14px;min-height:20px}
+.fmsg.bad{color:#b4443a}
+.fmsg.good{color:#0d6b4f}
+.links a.ios{background:#fff;color:#0d3b2e;border:1px solid #cfe2da}
 footer{padding:32px 0;font-size:14px;color:#888}
 footer a{color:#888}
 @media(max-width:600px){header{padding:52px 0 44px}header h1{font-size:32px}}
@@ -124,7 +135,21 @@ footer a{color:#888}
     <p class="lead">Interface in nine languages. No sign-up, data stays on your phone.</p>
     <div class="links">
       <a href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Get it on Google Play</a>
+      <a class="ios" href="#ios">iPhone — coming soon</a>
       <a class="ghost" href="/blog/en/">Read the recovery blog</a>
+    </div>
+
+    <div class="soon" id="ios">
+      <h3>The iPhone version is coming to the App Store</h3>
+      <p>Leave your email and we will write on launch day. One message, no mailing list.</p>
+      <form id="iosForm" novalidate>
+        <div class="frow">
+          <input type="email" id="iosMail" placeholder="you@example.com" autocomplete="email" spellcheck="false">
+          <button type="submit">Notify me</button>
+        </div>
+        <input type="text" id="iosTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="fmsg" id="iosMsg"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -149,8 +174,8 @@ footer a{color:#888}
         <p>No blame, no lecturing. What pulled the trigger, where the turning point was, and what to do over the next twenty-four hours.</p>
       </div>
       <div class="card">
-        <h3>It speaks</h3>
-        <p>Any answer can be played out loud. When your head is not working and reading is too much, that lands better than text.</p>
+        <h3>You don't have to read</h3>
+        <p>Every answer has a "Listen" button — your phone reads the text aloud. When your head is not working, that helps.</p>
       </div>
     </div>
     <p class="lead" style="margin-top:26px">The mentor does not diagnose and does not prescribe. It does not replace a doctor or a therapist — it is there in the gaps between seeing them.</p>
@@ -222,18 +247,6 @@ footer a{color:#888}
 
 <section>
   <div class="wrap">
-    <h2>iPhone version</h2>
-    <div class="soon">
-      <p>The iOS version is being prepared for release on the App Store. Leave your email and we will write on launch day — one message, no mailing list.</p>
-      <div class="links" style="margin-top:0">
-        <a href="mailto:forwip7@gmail.com?subject=Only%20Today%20for%20iPhone&amp;body=Let%20me%20know%20when%20the%20iPhone%20version%20is%20out.">Notify me at launch</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <h2>Straight talk</h2>
     <div class="note">
       <p>Your data stays on your phone. No sign-up, no account, no email.</p>
@@ -256,7 +269,7 @@ footer a{color:#888}
       <p>No. No sign-up, no email. Data stays on your phone and is never sent anywhere.</p>
 
       <h3>What does the AI mentor do?</h3>
-      <p>It answers at any hour, remembers the conversation, knows your sober time and your addiction. It helps with cravings, the daily plan and working through a relapse. It replies in text and by voice.</p>
+      <p>It answers at any hour, remembers the conversation, knows your sober time and your addiction. It helps with cravings, the daily plan and working through a relapse. Any answer can be read aloud by your phone.</p>
 
       <h3>When is the iPhone version coming?</h3>
       <p>It is being prepared for the App Store. Leave your email above and we will write on launch day.</p>
@@ -273,5 +286,25 @@ footer a{color:#888}
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var f=document.getElementById('iosForm');
+  if(!f) return;
+  var mail=document.getElementById('iosMail'),trap=document.getElementById('iosTrap'),msg=document.getElementById('iosMsg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    msg.className='fmsg';
+    if(trap.value){ return; }
+    var v=(mail.value||'').trim();
+    var at=v.indexOf('@'), dot=v.lastIndexOf('.');
+    var ok = v.length>5 && at>0 && dot>at+1 && dot<v.length-2 && v.indexOf(' ')<0 && v.indexOf('@',at+1)<0;
+    if(!ok){ msg.textContent='Check the address: it needs an @ and a dot after it.'; msg.className='fmsg bad'; mail.focus(); return; }
+    msg.textContent='Thanks. An email will open — just send it.'; msg.className='fmsg good';
+    window.location.href='mailto:forwip7@gmail.com?subject='+encodeURIComponent('Only Today for iPhone')+
+      '&body='+encodeURIComponent('Let me know when the iPhone version is out.\nMy email: '+v);
+  });
+})();
+</script>
 </body>
 </html>
