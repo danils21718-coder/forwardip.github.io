@@ -125,8 +125,8 @@ li{margin-bottom:11px}
   <h3>Only Today Sober</h3>
   <p class="sub" id="otcText">Contador de días, diario de emociones, registro de ansias, tareas y un acompañante disponible a cualquier hora. Sin registro, todo se queda en tu dispositivo.</p>
 
-  <a class="btn" id="otcMain" href="https://app.forwardip.online">Abrir la aplicación</a>
-  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Descargar en Google Play</a>
+  <a class="btn" id="otcMain" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Descargar en Google Play</a>
+  <a class="btn ghost" id="otcAlt" href="https://apps.apple.com/app/id6807734317">Descargar en App Store</a>
 
   <form id="otcForm" novalidate>
     <input type="email" id="otcEmail" placeholder="tu@email.com" autocomplete="email" required>
@@ -142,7 +142,6 @@ li{margin-bottom:11px}
   /* ▲ пусто = откроется почтовый клиент ▲ */
 
   var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
-  var WEB  = "https://app.forwardip.online";
 
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/i.test(ua);
@@ -154,18 +153,9 @@ li{margin-bottom:11px}
   var form = document.getElementById("otcForm");
   var text = document.getElementById("otcText");
 
-  if (isAndroid){
-    main.textContent = "Descargar en Google Play"; main.href = PLAY;
-    alt.textContent  = "Abrir en el navegador"; alt.href = WEB;
-  } else if (isIOS){
-    main.textContent = "Abrir la aplicación"; main.href = WEB;
-    alt.style.display = "none";
-    text.textContent = "Todavía no está en la App Store — funciona en el navegador y puedes añadirla a la pantalla de inicio. Déjanos tu correo y te avisamos el día del lanzamiento.";
-    form.style.display = "block";
-  } else {
-    main.textContent = "Abrir en el navegador"; main.href = WEB;
-    alt.textContent  = "Descargar en Google Play"; alt.href = PLAY;
-    form.style.display = "block";
+  if (isIOS){
+    main.textContent = "Descargar en App Store"; main.href = "https://apps.apple.com/app/id6807734317";
+    alt.textContent  = "Descargar en Google Play"; alt.href  = PLAY;
   }
 
   form.addEventListener("submit", function(e){

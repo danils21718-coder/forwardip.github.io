@@ -141,8 +141,8 @@ li{margin-bottom:11px}
   <h3>Только сегодня — приложение</h3>
   <p class="sub" id="otcText">Счётчик дней, дневник чувств, задания и наставник круглосуточно. Записи остаются на устройстве, регистрация не нужна.</p>
 
-  <a class="btn" id="otcMain" href="https://app.forwardip.online">Открыть приложение</a>
-  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Скачать в Google Play</a>
+  <a class="btn" id="otcMain" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Скачать в Google Play</a>
+  <a class="btn ghost" id="otcAlt" href="https://apps.apple.com/app/id6807734317">Скачать в App Store</a>
 
   <form id="otcForm" novalidate>
     <input type="email" id="otcEmail" placeholder="your@email.com" autocomplete="email" required>
@@ -158,7 +158,6 @@ li{margin-bottom:11px}
   /* ▲▲ пусто = откроется почтовый клиент ▲▲ */
 
   var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
-  var WEB  = "https://app.forwardip.online";
 
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/i.test(ua);
@@ -170,18 +169,9 @@ li{margin-bottom:11px}
   var form = document.getElementById("otcForm");
   var text = document.getElementById("otcText");
 
-  if (isAndroid){
-    main.textContent = "Скачать в Google Play"; main.href = PLAY;
-    alt.textContent  = "Открыть в браузере";    alt.href  = WEB;
-  } else if (isIOS){
-    main.textContent = "Открыть приложение";    main.href = WEB;
-    alt.style.display = "none";
-    text.textContent = "В App Store пока нет — работает в браузере, можно добавить на экран «Домой». Оставь почту, напишем в день выхода.";
-    form.style.display = "block";
-  } else {
-    main.textContent = "Открыть в браузере";    main.href = WEB;
+  if (isIOS){
+    main.textContent = "Скачать в App Store"; main.href = "https://apps.apple.com/app/id6807734317";
     alt.textContent  = "Скачать в Google Play"; alt.href  = PLAY;
-    form.style.display = "block";
   }
 
   form.addEventListener("submit", function(e){

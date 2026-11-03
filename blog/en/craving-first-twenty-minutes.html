@@ -115,8 +115,8 @@ li{margin-bottom:11px}
   <h3>Only Today Sober</h3>
   <p class="sub" id="otcText">Day counter, feelings journal, craving log, assignments and a companion available any hour. No signup, entries stay on your device.</p>
 
-  <a class="btn" id="otcMain" href="https://app.forwardip.online">Open the app</a>
-  <a class="btn ghost" id="otcAlt" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Get it on Google Play</a>
+  <a class="btn" id="otcMain" href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Get it on Google Play</a>
+  <a class="btn ghost" id="otcAlt" href="https://apps.apple.com/app/id6807734317">Download on the App Store</a>
 
   <form id="otcForm" novalidate>
     <input type="email" id="otcEmail" placeholder="your@email.com" autocomplete="email" required>
@@ -132,7 +132,6 @@ li{margin-bottom:11px}
   /* ▲ empty = falls back to mail client ▲ */
 
   var PLAY = "https://play.google.com/store/apps/details?id=co.median.android.qdbxmla";
-  var WEB  = "https://app.forwardip.online";
 
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/i.test(ua);
@@ -144,18 +143,9 @@ li{margin-bottom:11px}
   var form = document.getElementById("otcForm");
   var text = document.getElementById("otcText");
 
-  if (isAndroid){
-    main.textContent = "Get it on Google Play"; main.href = PLAY;
-    alt.textContent  = "Open in browser";       alt.href  = WEB;
-  } else if (isIOS){
-    main.textContent = "Open the app";          main.href = WEB;
-    alt.style.display = "none";
-    text.textContent = "Not on the App Store yet — it runs in your browser and can be added to your Home Screen. Leave your email and we'll tell you the day it lands.";
-    form.style.display = "block";
-  } else {
-    main.textContent = "Open in browser";       main.href = WEB;
-    alt.textContent  = "Get it on Google Play";  alt.href  = PLAY;
-    form.style.display = "block";
+  if (isIOS){
+    main.textContent = "Download on the App Store"; main.href = "https://apps.apple.com/app/id6807734317";
+    alt.textContent  = "Get it on Google Play"; alt.href  = PLAY;
   }
 
   form.addEventListener("submit", function(e){
