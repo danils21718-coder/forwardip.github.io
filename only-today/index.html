@@ -67,7 +67,7 @@
     {"@type":"Question","name":"Сколько стоит Only Today?","acceptedAnswer":{"@type":"Answer","text":"Приложение бесплатное. Все функции доступны без оплаты. Работа приложения поддерживается ненавязчивым показом рекламы."}},
     {"@type":"Question","name":"Нужна ли регистрация?","acceptedAnswer":{"@type":"Answer","text":"Нет. Аккаунт не нужен, почта не нужна. Все данные хранятся только на телефоне и никуда не передаются."}},
     {"@type":"Question","name":"Что умеет ИИ-наставник?","acceptedAnswer":{"@type":"Answer","text":"Наставник отвечает в любое время суток, помнит контекст разговора, знает срок трезвости и выбранную зависимость. Помогает разобрать тягу, спланировать день, пережить вечер, разобрать срыв без обвинений. Любой его ответ телефон может зачитать вслух. Он не заменяет врача и психотерапевта."}},
-    {"@type":"Question","name":"Когда выйдет версия для iPhone?","acceptedAnswer":{"@type":"Answer","text":"Версия для iOS готовится к релизу в App Store. Оставьте адрес электронной почты, и мы напишем в день выхода."}},
+    {"@type":"Question","name":"Есть ли версия для iPhone?","acceptedAnswer":{"@type":"Answer","text":"Да. Приложение есть в App Store и в Google Play."}},
     {"@type":"Question","name":"Заменяет ли приложение лечение?","acceptedAnswer":{"@type":"Answer","text":"Нет. Only Today не заменяет врача, нарколога и психотерапевта. Это поддержка и самопомощь. При тяжёлой абстиненции нужна медицинская помощь."}}
   ]
 }
@@ -135,21 +135,8 @@ footer a{color:#888}
     <p class="lead">Интерфейс на девяти языках. Регистрации нет, данные остаются на телефоне.</p>
     <div class="links">
       <a href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Скачать в Google Play</a>
-      <a class="ios" href="#ios">iPhone — скоро</a>
+      <a href="https://apps.apple.com/app/id6807734317">Скачать в App Store</a>
       <a class="ghost" href="/blog/">Читать блог о зависимости</a>
-    </div>
-
-    <div class="soon" id="ios">
-      <h3>Версия для iPhone скоро выйдет в App Store</h3>
-      <p>Оставь почту — напишем в день релиза. Одно письмо, без рассылки.</p>
-      <form id="iosForm" novalidate>
-        <div class="frow">
-          <input type="email" id="iosMail" placeholder="почта@пример.com" autocomplete="email" spellcheck="false">
-          <button type="submit">Уведомить меня</button>
-        </div>
-        <input type="text" id="iosTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="fmsg" id="iosMsg"></div>
-      </form>
     </div>
   </div>
 </section>
@@ -271,8 +258,8 @@ footer a{color:#888}
       <h3>Что умеет ИИ-наставник?</h3>
       <p>Отвечает в любое время суток, помнит контекст, знает срок трезвости и выбранную зависимость. Помогает с тягой, планом дня, разбором срыва. Ответ можно прослушать — телефон зачитает его вслух.</p>
 
-      <h3>Когда выйдет версия для iPhone?</h3>
-      <p>Готовится к релизу в App Store. Оставь почту выше — напишем в день выхода.</p>
+      <h3>Есть ли версия для iPhone?</h3>
+      <p>Да. Приложение есть в App Store и в Google Play.</p>
 
       <h3>Заменяет ли приложение лечение?</h3>
       <p>Нет. Это поддержка и самопомощь. При тяжёлой абстиненции нужна медицинская помощь.</p>
@@ -287,24 +274,5 @@ footer a{color:#888}
 </footer>
 
 
-<script>
-(function(){
-  var f=document.getElementById('iosForm');
-  if(!f) return;
-  var mail=document.getElementById('iosMail'),trap=document.getElementById('iosTrap'),msg=document.getElementById('iosMsg');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    msg.className='fmsg';
-    if(trap.value){ return; }                       // ловушка для ботов: люди это поле не видят
-    var v=(mail.value||'').trim();
-    var at=v.indexOf('@'), dot=v.lastIndexOf('.');
-    var ok = v.length>5 && at>0 && dot>at+1 && dot<v.length-2 && v.indexOf(' ')<0 && v.indexOf('@',at+1)<0;
-    if(!ok){ msg.textContent='Проверь адрес: нужны знак @ и точка после него.'; msg.className='fmsg bad'; mail.focus(); return; }
-    msg.textContent='Спасибо. Сейчас откроется письмо — просто отправь его.'; msg.className='fmsg good';
-    window.location.href='mailto:forwip7@gmail.com?subject='+encodeURIComponent('Only Today для iPhone')+
-      '&body='+encodeURIComponent('Сообщите мне о релизе версии для iPhone.\nМоя почта: '+v);
-  });
-})();
-</script>
 </body>
 </html>

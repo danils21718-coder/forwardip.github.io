@@ -67,7 +67,7 @@
     {"@type":"Question","name":"How much does Only Today cost?","acceptedAnswer":{"@type":"Answer","text":"The app is free. Every feature is available at no cost. The app is supported by non-intrusive ads."}},
     {"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No. No sign-up, no email. All data stays on your phone and is never sent anywhere."}},
     {"@type":"Question","name":"What does the AI mentor do?","acceptedAnswer":{"@type":"Answer","text":"It answers at any hour, remembers the conversation, knows your sober time and the addiction you picked. It helps you break down a craving, plan the day, get through the evening and work through a relapse without blame. Any answer can be read aloud by your phone. It does not replace a doctor or a therapist."}},
-    {"@type":"Question","name":"When is the iPhone version coming?","acceptedAnswer":{"@type":"Answer","text":"The iOS version is being prepared for release on the App Store. Leave your email and we will write to you on launch day."}},
+    {"@type":"Question","name":"Is there an iPhone version?","acceptedAnswer":{"@type":"Answer","text":"Yes. The app is on the App Store and on Google Play."}},
     {"@type":"Question","name":"Does the app replace treatment?","acceptedAnswer":{"@type":"Answer","text":"No. Only Today does not replace a doctor, an addiction specialist or a therapist. It is support and self-help. Severe withdrawal needs medical care."}}
   ]
 }
@@ -135,21 +135,8 @@ footer a{color:#888}
     <p class="lead">Interface in nine languages. No sign-up, data stays on your phone.</p>
     <div class="links">
       <a href="https://play.google.com/store/apps/details?id=co.median.android.qdbxmla">Get it on Google Play</a>
-      <a class="ios" href="#ios">iPhone — coming soon</a>
+      <a href="https://apps.apple.com/app/id6807734317">Download on the App Store</a>
       <a class="ghost" href="/blog/en/">Read the recovery blog</a>
-    </div>
-
-    <div class="soon" id="ios">
-      <h3>The iPhone version is coming to the App Store</h3>
-      <p>Leave your email and we will write on launch day. One message, no mailing list.</p>
-      <form id="iosForm" novalidate>
-        <div class="frow">
-          <input type="email" id="iosMail" placeholder="you@example.com" autocomplete="email" spellcheck="false">
-          <button type="submit">Notify me</button>
-        </div>
-        <input type="text" id="iosTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="fmsg" id="iosMsg"></div>
-      </form>
     </div>
   </div>
 </section>
@@ -271,8 +258,8 @@ footer a{color:#888}
       <h3>What does the AI mentor do?</h3>
       <p>It answers at any hour, remembers the conversation, knows your sober time and your addiction. It helps with cravings, the daily plan and working through a relapse. Any answer can be read aloud by your phone.</p>
 
-      <h3>When is the iPhone version coming?</h3>
-      <p>It is being prepared for the App Store. Leave your email above and we will write on launch day.</p>
+      <h3>Is there an iPhone version?</h3>
+      <p>Yes. The app is on the App Store and on Google Play.</p>
 
       <h3>Does it replace treatment?</h3>
       <p>No. It is support and self-help. Severe withdrawal needs medical care.</p>
@@ -287,24 +274,5 @@ footer a{color:#888}
 </footer>
 
 
-<script>
-(function(){
-  var f=document.getElementById('iosForm');
-  if(!f) return;
-  var mail=document.getElementById('iosMail'),trap=document.getElementById('iosTrap'),msg=document.getElementById('iosMsg');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    msg.className='fmsg';
-    if(trap.value){ return; }
-    var v=(mail.value||'').trim();
-    var at=v.indexOf('@'), dot=v.lastIndexOf('.');
-    var ok = v.length>5 && at>0 && dot>at+1 && dot<v.length-2 && v.indexOf(' ')<0 && v.indexOf('@',at+1)<0;
-    if(!ok){ msg.textContent='Check the address: it needs an @ and a dot after it.'; msg.className='fmsg bad'; mail.focus(); return; }
-    msg.textContent='Thanks. An email will open — just send it.'; msg.className='fmsg good';
-    window.location.href='mailto:forwip7@gmail.com?subject='+encodeURIComponent('Only Today for iPhone')+
-      '&body='+encodeURIComponent('Let me know when the iPhone version is out.\nMy email: '+v);
-  });
-})();
-</script>
 </body>
 </html>
